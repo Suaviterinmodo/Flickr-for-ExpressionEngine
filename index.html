@@ -10,7 +10,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Flickr-for-expressionengine by brettdewoody</title>
+    <title>Flickr for ExpressionEngine by Brett DeWoody</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
       <div class="inner">
 
         <header>
-          <h1>Flickr-for-expressionengine</h1>
+          <h1>Flickr for ExpressionEngine</h1>
           <h2>Integrates Flickr into ExpressionEngine</h2>
         </header>
 
@@ -31,37 +31,701 @@
         <hr>
 
         <section id="main_content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+          
+          	<p>Flickr for EE is an ExpressionEngine 2 add-on that fully integrates Flickr into your website. There are two main features:</p>
+		    <p>The first is a new custom field type that allows you to browse your Flickr photos and select a photo to display in your entry.  In addition to the photo you can also display the photo's title, description and a link to the photo's page on Flickr. This makes creating a photoblog extremely simple.</p>
+		    <p><img src="/expressionengine/flickr/img/browser_1.jpg" alt="Browser"/> <img src="/expressionengine/flickr/img/browser_2.jpg"  alt="Browser"/> <img src="/expressionengine/flickr/img/browser_3.jpg" alt="Browser"/></p>
+		    <p>The second part is a set of template tag pairs to display your photostream, favorited photos, Flickr tags and more. </p> 
+		    
+			<h2>Table of Contents</h2> 
+			<ul class="minitoc">
+		    	<li><a href="/expressionengine-2/flickr/#requirements">Requirements</a></li> 
+				<li><a href="/expressionengine-2/flickr/#installation">Installation</a></li> 
+				<li><a href="/expressionengine-2/flickr/#activation">Activation</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#flickrfield">Creating a Flickr Field</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#customfieldtag">Custom Field Tag</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags">Template Tags</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#examples">Example Code</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#thanksto">Special Thanks To...</a></li>
+		        <li><a href="/expressionengine-2/flickr/#releasenotes">Release Notes</a></li> 
+			</ul>
+			
+			<h2><a name="requirements">Requirements</a></h2> 
+			
+			<p>Make sure your system meets the minimum requirements:</p>
+		    <ul>
+		    	<li>ExpressionEngine 2.02 or later</li>
+		        <li>PHP 5</li>
+		        <li>A <a href="http://flickr.com">Flickr</a> account (free or pro)</li>
+		    </ul>
+		    <div class="important"><p><strong>NOTE:</strong> Support for Matrix 2 is coming soon!</p></div> 
+			
+			<h2><a name="installation">Installation Instructions</a></h2> 
+			<div id="download" style="float:right; text-align:center;"><a target="_blank" href="/expressionengine-2/flickr/DigitalWaxWorks_flickr-2.0.2.zip" onClick="javascript: pageTracker._trackPageview('/downloads/flickr_v202'); ">Download Flickr v.2.0.2</a>
+		    	<br/><br/>
+		    	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		        <input type="hidden" name="cmd" value="_s-xclick">
+		        <input type="hidden" name="hosted_button_id" value="FQQYY2P8NQVLY">
+		        <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+		        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		        </form>
+		    </div>
+			<ol> 
+				<li><a target="_blank" href="/expressionengine-2/flickr/DigitalWaxWorks_flickr-2.0.2.zip" onClick="javascript: pageTracker._trackPageview('/downloads/flickr_v202'); ">Download Flickr v.2.0.2</a> and unzip the file</li> 
+		        <li>Upload the /third_party/dww_flickr folder to your /system/expressionengine/third_party/ directory</li> 
+		        <li>In your control panel, click Add-ons &raquo; Fieldtypes</li>
+		        <li>Install Flickr</li>
+		        <li>See <a href="/expressionengine/flickr/#activation">activation</a> for more info on setup</li>
+			</ol>
+		    
+		    <h2><a name="activation">Activation</a></h2> 
+			
+		    <p>To maintain a high level of security Flickr uses an "AuthSub" authentication protocol. This enables the Flickr for EE add-on to access the user's Flickr account without ever handling the users's account login information (i.e. username and password).  Unfortuantely, it also makes the activiation process a bit more complex.</p>
+		    <p>The steps below should only take a few minutes to complete:</p>
+		    
+			<ol> 
+		    	<li>In your control panel, Add-ons &raquo; Fieldtypes</li>
+				<li>Install Flickr for EE if you haven't already, then click 'Flickr' to view the settings<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_1.jpg" alt="Flickr Settings" /></li> 
+		        <li>Open a new browser tab and login to your <a target="_blank" href="http://www.flickr.com">Flickr</a> account</li>
+		        <li>Once logged in, go to You &raquo; Your Apps and click the 'Get Another Key' link on the right side of the page<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_2.jpg" alt="Get Another Key" /></li>
+		        <li>Click the 'Apply for a non-commercial key' link (the box on the left)<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_3.jpg" alt="Apply for a non-commercial key" /></li>
+		        <li>Enter the required info (per the screenshot below), then click 'Submit'<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_4.jpg" alt="About your app" /></li>
+		        <li>Click the 'Edit auth flow for this app' link (below your Flickr Secret code)</li>
+		        <li>Enter your Callback URL (available on your Flickr settings page from Step #3) into the Callback URL field, then click 'Save Changes'<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_5.jpg" alt="Authentication flow" /></li>
+		        <li>Click the 'View the API Key for this app' link (right sidebar, located under Admin)</li>
+		        <li>Copy and paste your Flickr Key and Secret values into the fields on your EE Flickr settings page, then click 'Apply' to save the settings<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_6.jpg" alt="Key and Secret values" /></li>
+		        <li>Open the EE Flickr settings again and you'll see a green 'Click to activate Flickr' link, click it<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_7.jpg" alt="Key and Secret values" /></li>
+		        <li>You'll be redirected to Flickr to authorize the EE Flickr add-on, click the 'Ok, I'll authorize it" link<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_8.jpg" alt="Authorize it" /></li>
+		        <li>If everything was successful all of the fields will be filled in. If you still only see your API and SECRET fields, along with the activiation link, click the activiation link agian to attempt to connect with Flickr again.<br/>
+		        <img class="screenshot" src="/expressionengine-2/flickr/img/activation_9.jpg" alt="Success" /></li> 
+				<li>Click 'Apply' to save your settings</li>
+		    </ol> 
+		    
+		    
+		    <h2><a name="flickrfield">Creating a Flickr Field</a></h2> 
+			
+			<p>The EE Flickr Add-on gives you a new 'Flickr' fieldtype which allows you to browse your Flickr photos and select an image for displaying within your content.</p>
+		    <p>Once you've installed and actived Flickr for EE, adding a Flickr field is easy.</p>
+		    
+		    <ol>
+		    	<li>In your Control Panel, click Admin &raquo; Channel Administration &raquo; Custom Fields, then click Add/Edit Custom Fields, and click the 'Create a New Custom Field' button in the top-right</li>
+		    	<li>Enter a Field Name, Field Label, and optionally, Field Instructions for your authors</li>
+		    	<li>Set the Field Type to 'Flickr'</li>
+		    </ol>
+		    
+		    <p>Save your field and you're done! Any weblogs that use this field's group will now have the Flickr field.</p>
+		
+			
+		    <h2><a name="customfieldtag">Custom Field Tag</a></h2> 
+		    
+		    <p>Once you've created a Flickr field and selected an image you're ready to display it within your templates.  For the sake of example we'll pretend you named your Flickr field 'flickr_field'.</p>
+		 
+				<code>&#123;flickr_field&#125;</code> 
+		 
+				<p>Displays the URL of the photo you selected. This is the complete URL to the photo hosted by Flickr. By default the photo displayed will be the 'medium' size, 500px on the longest side.</p>
+		        
+		        <p>To display the actual image you would do something like:</p>
+		        
+		        <code>&#60;img src="&#123;flickr_field&#125;" alt="&#123;flickr_field:title&#125;"/&#62;</code> 
+		        
+		        <div class="indent">
+		        
+		        <h4>size = "thumb|square|small|medium|large"</h4>
+		        
+		        <p>Setting the 'size' parameter returns the URL for the other photo sizes.</p> 
+		    	
+		        <p>Here are the dimenions of each size:</p>
+		        <ul>
+		        	<li>square = 75x75 pixels</li>
+					<li>thumb = 100 pixels on the longest side</li>
+					<li>small = 240 pixels on the longest side</li>
+					<li>medium = 500 pixels on the longest side</li>
+					<li>large = 1024 pixels the on longest side (only exists for very large original images)</li>
+		        </ul>
+		    
+		   		<div class="important"><p><strong>NOTE:</strong> Depending on the original size of the photo, not all sizes are available from Flickr. If you uploaded a low resolution photo its unlikely the 'large' size will be available.</p></div> 
+		    
+		    	<div class="important"><p><strong>Remember!</strong> <a href="http://www.flickr.com/guidelines.gne">Flickr Community Guidelines</a> specify that if you post a Flickr photo on an external website, the photo must link back to its photo page.</p></div> 
+		    
+		    <h3><a name="var_foo">:title Tag</a></h3> 
+		 
+				<code>&#123;flickr_field:title&#125;</code> 
+		 
+				<p>Displays the title of the photo from Flickr.  If there is no title set in Flickr this will be blank.</p> 
+		        
+		    <h3><a name="var_foo">:description Tag</a></h3> 
+		 
+				<code>&#123;flickr_field:description&#125;</code> 
+		 
+				<p>Displays the description of the photo from Flickr.  If there is no description set in Flickr this will be blank.</p> 
+			
+		    <h3><a name="var_foo">:pagelink Tag</a></h3> 
+		 
+				<code>&#123;flickr_field:pagelink&#125;</code> 
+		 
+				<p>Displays the URL to the photo's page on Flickr.  Useful for linking to the photo's page so visitors can view additional sizes, comments, etc.</p> 
+		    <h3><a name="var_foo">:owner Tag</a></h3> 
+		 
+				<code>&#123;flickr_field:owner&#125;</code> 
+		 
+				<p>Displays the id of the photo's owner.</p> 
+		    
+		    </div>
+		    
+		    <h2><a name="templatetags">Template Tags and Parameters</a></h2>
+		    
+		    <ul class="minitoc">
+		    	<li><a href="/expressionengine-2/flickr/#templatetags_photostream">Photostream</a></li> 
+				<li><a href="/expressionengine-2/flickr/#templatetags_favorites">Favorites</a></li> 
+				<li><a href="/expressionengine-2/flickr/#templatetags_photosets">Photosets</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags_photoset">Photoset</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags_groups">Groups</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags_group">Groups</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags_tagcloud">Tag Cloud</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags_tagset">Tag Set</a></li> 
+		        <li><a href="/expressionengine-2/flickr/#templatetags_photo">Photo</a></li> 
+			</ul>
+		    
+			<h3><a name="templatetags_photostream">Photostream Tag Pair</a></h3> 
+		 
+				<code>&#123;exp:dww_flickr:photostream&#125;&#123;/exp:dww_flickr:photostream&#125;</code> 
+		        
+		        <p>Displays your most recent photos in chronological order (newest to oldest).  By default it will show 10 photos and the size will be set to 'square.' You can override these with the following parameters:</p>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <h4>limit = ""</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;flickr_url&#125;</code>
+		        
+		        <p>The URL to the photo's page on Flickr</p>
+		        
+		        <code>&#123;flickr_url_small&#125;</code>
+		        
+		        <p>The URL to the photo's small photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_medium&#125;</code>
+		        
+		        <p>The URL to the photo's medium photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_orig&#125;</code>
+		        
+		        <p>The URL to the photo's original photo on Flickr</p>
+		        
+		        <code>&#123;flickr_img&#125;</code>
+		        
+		        <p>The photo's URL</p>
+		        
+		        <code>&#123;flickr_title&#125;</code> 
+		        
+		        <p>The photo's title</p>  
+		        
+		        <code>&#123;flickr_description&#125;</code> 
+		        
+		        <p>The photo's description</p>
+		        
+		        </div>
+		        
+			
+		    <h3><a name="templatetags_favorites">Favorites Tag Pair</a></h3> 
+		 
+				<code>&#123;exp:dww_flickr:favorites&#125;&#123;/exp:dww_flickr:favorites&#125;</code> 
+		        
+		        <p>Displays your most recent favorite photos in chronological order (newest to oldest).  By default it will show 10 photos and the size will be set to 'square.' You can override these with the following parameters:</p>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <h4>limit = ""</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;flickr_url&#125;</code>
+		        
+		        <p>The URL to the photo's page on Flickr. This will work even when the photo belongs to another user.</p>
+		        
+		        <code>&#123;flickr_url_small&#125;</code>
+		        
+		        <p>The URL to the photo's small photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_medium&#125;</code>
+		        
+		        <p>The URL to the photo's medium photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_orig&#125;</code>
+		        
+		        <p>The URL to the photo's original photo on Flickr</p>
+		        
+		        <code>&#123;flickr_img&#125;</code>
+		        
+		        <p>The photo's URL</p>
+		        
+		        <code>&#123;flickr_title&#125;</code> 
+		        
+		        <p>The photo's title</p>  
+		        
+		        <code>&#123;flickr_description&#125;</code> 
+		        
+		        <p>The photo's description</p>
+		        
+		        </div>
+		        
+			
+		    <h3><a name="templatetags_photosets">Photosets Tag Pair</a></h3> 
+		 
+				<code>&#123;exp:dww_flickr:photosets&#125;&#123;/exp:dww_flickr:photosets&#125;</code> 
+		        
+		        <p>Displays your Flickr photosets (newest to oldest). By default the cover image size will be set to 'square'. You can override this with the following parameter:</p>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;set_img&#125;</code>
+		        
+		        <p>The url of the photoset's cover photo</p>
+		        
+		        <code>&#123;set_url&#125;</code>
+		        
+		        <p>The URL to the photoset's page on Flickr.</p>
+		        
+		        <code>&#123;set_title&#125;</code> 
+		        
+		        <p>The photoset's title</p>  
+		        
+		        <code>&#123;set_description&#125;</code> 
+		        
+		        <p>The photoset's description</p>
+		        
+		        <code>&#123;set_id&#125;</code> 
+		        
+		        <p>The photoset's ID</p>
+		        
+		        </div>
+		        
+		     
+		    <h3><a name="templatetags_photoset">Photoset Tag Pair</a></h3> 
+		    
+		    	<code>&#123;exp:dww_flickr:photoset set_id=""&#125;&#123;/exp:dww_flickr:photoset&#125;</code> 
+		        
+		        <p>Displays your photos from a specific set in chronological order (newest to oldest).  By default it will show 10 photos and the size will be set to 'square.' You can override these with the following parameters:</p>
+		        
+		        <h4>set_id = ""</h4>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <h4>limit = ""</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;flickr_url&#125;</code>
+		        
+		        <p>The URL to the photo's page on Flickr. This will work even when the photo belongs to another user.</p>
+		        
+		        <code>&#123;flickr_url_small&#125;</code>
+		        
+		        <p>The URL to the photo's small photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_medium&#125;</code>
+		        
+		        <p>The URL to the photo's medium photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_orig&#125;</code>
+		        
+		        <p>The URL to the photo's original photo on Flickr</p>
+		        
+		        <code>&#123;flickr_img&#125;</code>
+		        
+		        <p>The photo's URL</p>
+		        
+		        <code>&#123;flickr_title&#125;</code> 
+		        
+		        <p>The photo's title</p>  
+		        
+		        <code>&#123;flickr_description&#125;</code> 
+		        
+		        <p>The photo's description</p>
+		        
+		    
+		    <h3><a name="templatetags_groups">Groups Tag Pair</a></h3> 
+		 
+				<code>&#123;exp:dww_flickr:groups&#125;&#123;/exp:dww_flickr:groups&#125;</code> 
+		        
+		        <p>Displays the Flickr groups you belong to.</p>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;group_url&#125;</code>
+		        
+		        <p>The URL to the group's page on Flickr.</p>
+		        
+		        <code>&#123;group_name&#125;</code> 
+		        
+		        <p>The groups's title</p>  
+		        
+		        <code>&#123;group_id&#125;</code> 
+		        
+		        <p>The group's id</p>
+		        
+		        </div>
+		        
+		    
+		    <h3><a name="templatetags_group">Group Tag Pair</a></h3> 
+		    
+		    	<code>&#123;exp:dww_flickr:groupset group_id=""&#125;&#123;/exp:dww_flickr:groupset&#125;</code> 
+		        
+		        <p>Displays photos from a specific group iin chronological order (newest to oldest).  By default it will show 10 photos and the size will be set to 'square.' You can override these with the following parameters:</p>
+		        
+		        <h4>group_id = ""</h4>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <h4>limit = ""</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;flickr_url&#125;</code>
+		        
+		        <p>The URL to the photo's page on Flickr. This will work even when the photo belongs to another user.</p>
+		        
+		        <code>&#123;flickr_url_small&#125;</code>
+		        
+		        <p>The URL to the photo's small photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_medium&#125;</code>
+		        
+		        <p>The URL to the photo's medium photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_orig&#125;</code>
+		        
+		        <p>The URL to the photo's original photo on Flickr</p>
+		        
+		        <code>&#123;flickr_img&#125;</code>
+		        
+		        <p>The photo's URL</p>
+		        
+		        <code>&#123;flickr_title&#125;</code> 
+		        
+		        <p>The photo's title</p>  
+		        
+		        <code>&#123;flickr_description&#125;</code> 
+		        
+		        <p>The photo's description</p>
+		        
+		      
+			<h3><a name="templatetags_tagcloud">Tag Cloud Tag Pair</a></h3> 
+		 
+				<code>&#123;exp:dww_flickr:tagcloud&#125;&#123;/exp:dww_flickr:tagcloud&#125;</code> 
+		        
+		        <p>Displays a list of your tags from Flickr. This is designed for use as a tag cloud using the available variables. One of the variables available is the proportional tag size (based on the number of photos tagged with that particular tag). By default the maximum and minimum font sizes are 28px and 11px respectively. You can override these with the following parameters:</p>
+		        
+		        <h4>font_min = "#"</h4>
+		        
+		        <h4>font_max = "#"</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;tag_name&#125;</code>
+		        
+		        <p>The name of the tag</p>
+		        
+		        <code>&#123;tag_link&#125;</code>
+		        
+		        <p>The link to the tag's page on Flickr where all your photos tagged with this tag will display</p>
+		        
+		        <code>&#123;tag_size&#125;</code> 
+		        
+		        <p>The proportional size based on the number of your photos tagged with this tag. If you have lots of photos tagged with this tag, the 'tag-size' will be large.  If there are few photos tagged with this tag the 'tag_size' will be smaller.  by setting the 'font-min' and 'font-max' parameter you can control the maximum </p>   
+		       
+		        </div>
+		        
+		        
+		    <h3><a name="templatetags_tagset">Tag Set Tag Pair</a></h3> 
+		    
+		    	<code>&#123;exp:dww_flickr:tagset group_id=""&#125;&#123;/exp:dww_flickr:tagset&#125;</code> 
+		        
+		        <p>Displays photos from a specific tag in chronological order (newest to oldest).  By default it will show 10 photos and the size will be set to 'square.' You can override these with the following parameters:</p>
+		        
+		        <h4>tag = ""</h4>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <h4>limit = ""</h4>
+		        
+		        <p>The following single variables are available within your tag pair:</p>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;flickr_url&#125;</code>
+		        
+		        <p>The URL to the photo's page on Flickr. This will work even when the photo belongs to another user.</p>
+		        
+		        <code>&#123;flickr_url_small&#125;</code>
+		        
+		        <p>The URL to the photo's small photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_medium&#125;</code>
+		        
+		        <p>The URL to the photo's medium photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_orig&#125;</code>
+		        
+		        <p>The URL to the photo's original photo on Flickr</p>
+		        
+		        <code>&#123;flickr_img&#125;</code>
+		        
+		        <p>The photo's URL</p>
+		        
+		        <code>&#123;flickr_title&#125;</code> 
+		        
+		        <p>The photo's title</p>  
+		        
+		        <code>&#123;flickr_description&#125;</code> 
+		        
+		        <p>The photo's description</p>
+		        
+		    <h3><a name="templatetags_photo">Photo Tag Pair</a></h3> 
+		    
+		    	<code>&#123;exp:dww_flickr:photo photo_id=""&#125;&#123;/exp:dww_flickr:photo&#125;</code> 
+		        
+		        <p>Displays a single photo along with meta and geo data, tags, notes and comments</p>
+		        
+		        <h4>photo_id = ""</h4>
+		        
+		        <h4>size = "thumb|square|small|medium"</h4>
+		        
+		        <div class="indent">
+		        
+		        <code>&#123;flickr_url&#125;</code>
+		        
+		        <p>The URL to the photo's page on Flickr. This will work even when the photo belongs to another user.</p>
+		        
+		        <code>&#123;flickr_url_small&#125;</code>
+		        
+		        <p>The URL to the photo's small photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_medium&#125;</code>
+		        
+		        <p>The URL to the photo's medium photo on Flickr</p>
+		        
+		        <code>&#123;flickr_url_orig&#125;</code>
+		        
+		        <p>The URL to the photo's original photo on Flickr</p>
+		        
+		        <code>&#123;flickr_img&#125;</code>
+		        
+		        <p>The photo's URL</p>
+		        
+		        <code>&#123;flickr_title&#125;</code> 
+		        
+		        <p>The photo's title</p>  
+		        
+		        <code>&#123;flickr_description&#125;</code> 
+		        
+		        <p>The photo's description</p>
+		        
+		        <code>&#123;flickr_comment_total&#125;</code> 
+		        
+		        <p>The total number of comments</p>
+		        
+		        <code>&#123;flickr_dateposted&#125;</code> 
+		        
+		        <p>The date the photo was posted, formatted as Unix timestamp</p>
+		        
+		        <code>&#123;flickr_datetaken&#125;</code> 
+		        
+		        <p>The date the photo was taken, formatted as YYYY-MM-DD HH:MM:SS</p>
+		        
+		        <code>&#123;flickr_latitude&#125;</code> 
+		        
+		        <p>The photo's longtitude</p>
+		        
+		        <code>&#123;flickr_longitude&#125;</code> 
+		        
+		        <p>The photo's longitude</p>
+		        
+		        <code>&#123;flickr_locality&#125;</code> 
+		        
+		        <p>The photo's city</p>
+		        
+		        <code>&#123;tags&#125;&#123;/tags&#125;</code> 
+		        
+		        <p>A tag pair to display all tags for the photo. There are 2 tag variables available:</p>
+		        
+		        <div class="indent">
+		        	
+		            <code>&#123;tag_name&#125;</code> 
+		        
+		        	<p>The tag's name</p>
+		            
+		            <code>&#123;tag_link&#125;</code> 
+		        
+		        	<p>The URL to the tag's page on Flickr</p>
+		            	
+		        </div>
+		        
+		        <code>&#123;notes&#125;&#123;/notes&#125;</code> 
+		        
+		        <p>A tag pair to display the notes for the photo. There are 6 tag variables available:</p>
+		        
+		        <div class="indent">
+		        	
+		            <code>&#123;note&#125;</code> 
+		        
+		        	<p>The note's text</p>
+		            
+		            <code>&#123;note_x&#125;</code> 
+		        
+		        	<p>The x-position of the note's top left corner</p>
+		            
+		            <code>&#123;note_y&#125;</code> 
+		        
+		        	<p>The y-position of the note's top left corner</p>
+		            
+		            <code>&#123;note_height&#125;</code> 
+		        
+		        	<p>The height of the note box</p>
+		            
+		            <code>&#123;note_width&#125;</code> 
+		        
+		        	<p>The width of the note box</p>
+		            
+		            <code>&#123;note_author&#125;</code> 
+		        
+		        	<p>The note's author</p>
+		            	
+		        </div>
+		        
+		        <code>&#123;comments&#125;&#123;/comments&#125;</code> 
+		        
+		        <p>A tag pair to display the comments for the photo. There are 3 tag variables available:</p>
+		        
+		        <div class="indent">
+		        	
+		            <code>&#123;comment&#125;</code> 
+		        
+		        	<p>The comment text</p>
+		            
+		            <code>&#123;comment_author&#125;</code> 
+		        
+		        	<p>The comment's author</p>
+		            
+		            <code>&#123;comment_date&#125;</code> 
+		        
+		        	<p>The comment's date, formatted as a Unix timestamp</p>
+		            	
+		        </div>
+		       
+		        </div>
+		        
+			<h2><a name="examples">Example Code</a></h2> 
+			
+			<code>&#123;exp:dww_flickr:photostream size="square"&#125;&#60;a href="&#123;flickr_url&#125;"&#62;&#60;img src="&#123;flickr_img&#125;" alt="&#123;flickr_title&#125;"/&#62;&#60;/a&#62;&#123;/exp:dww_flickr:photostream&#125;</code>
+		    
+		    <p>Displays your photostream as a row of square thumbnails which link to the photo's page on Flickr</p>
+		    
+		    <p>&nbsp;</p>
+		    
+		    <code>&#123;exp:dww_flickr:favorites size="square"&#125;&#60;a href="&#123;flickr_url&#125;"&#62;&#60;img src="&#123;flickr_img&#125;" alt="&#123;flickr_title&#125;"/&#62;&#60;/a&#62;&#123;/exp:dww_flickr:favorites&#125;</code>
+		    
+		    <p>Displays your Flickr favorites as a row of square thumbnails which link to the photo's page on Flickr</p>
+		      
+		    <p>&nbsp;</p>
+		    
+		    <code>&#123;exp:dww_flickr:photosets size="square"&#125;&#60;a href="&#123;set_url&#125;"&#62;&#60;img src="&#123;set_img&#125;" alt="&#123;set_title&#125;"/&#62;&#60;/a&#62;&#123;/exp:dww_flickr:photosets&#125;</code>
+		    
+		    <p>Displays your Flickr photosets as a row of square thumbnails (using the photoset's cover photo from Flickr) which link to the photoset's page on Flickr</p>
+		      
+		    <p>&nbsp;</p>
+		    
+		    <code>&#123;exp:dww_flickr:tagcloud&#125;&#60;a href="&#123;tag_url&#125;" style="font-size:&#123;tag_size&#125;"&#62;&#123;tag_name&#125;&#62;&#60;/a&#62;&#123;/exp:dww_flickr:tagcloud&#125;</code>  
+		
+			<p>Displays a tag cloud where the size of the tag is proportional to the number of photos tagged with that particular tag</p>
+			
+		    <p>&nbsp;</p>
+		    
+		    <code>&#123;exp:imgsizer:size src="&#123;flickr_url&#125;" width="200" alt="&#123;flickr_title&#125;" remote="on"&#125;</code>
+		    
+			<p>Use <a href="http://www.lumis.com/page/imgsizer/" target="_blank">ImageSizer</a> to dynamically resize the image to any size you want. This will cache the photo on your own server instead of pulling it from Flickr every time its displayed.</p>   
+		
+		    <div class="important"><p><strong>NOTE:</strong>You'll need to use ImageSizer's 'remote' parameter since we're pulling the image from Flickr.</p></div> 
+		    
+		    <p>&nbsp;</p>
+		    
+		    <code>&#60;a href="&#123;flickr_field size="medium"&#125;" title="&#123;flickr_field:description&#125;" class="thickbox"&#62;&#60;img src="&#123;flickr_field size="thumb"&#125;" alt="&#123;flickr_field:title&#125;"/&#62;&#60;/a&#62;</code>
+		    
+		    <p>Open a larger view of the photo using <a href="http://jquery.com/demo/thickbox/" target="_blank">Thickbox</a>. The photo's description will be used as the image caption. You would need to include the jQuery and Thickbox code in your header for this to work.</p>
+		    
+		    <p>&nbsp;</p>
+		    
+		    
+		    
+		    <h2><a name="thanksto">With Special Thanks To...</a></h2>
+		    
+		    <p>Flickr for EE relies on several superb open-source projects for some of the behind the scenes magic.  In no particular order these are:</p>
+		   	<p><a href="http://phpflickr.com" target="_blank">phpFlickr</a> by <a href="http://dancoulter.com/" target="_blank">Dan Coulter</a> - A PHP wrapper class for the Flickr API.  We tried several other PHP wrapper classes and none of them came close to performing as well as phpFlickr.</p> 
+		 	<p><a href="http://www.kelvinluck.com/projects/jscrollpane-custom-cross-browser-scrollbars/">jScrollPane</a> by Kelvin Luck - A jQuery plugin which provides you with custom scrollbars which work consistently across all modern browsers.</p>
+		    <p><a href="http://xrrr-slog.blogspot.com/2008/06/create-flickr-tag-cloud-in-php.html">PHP Tag Cloud</a> - A great little script to produce a tag cloud with proportionally sized tags.</p>
+		    <p><a href="http://fancybox.net/">FancyBox</a> - a jQuery-based "lightbox" for displaying images and html elements.</p>
+		   
+		   
+		    
+		    <h2><a name="releasenotes">Release Notes</a></h2>
+		    
+		    <p>####  2.0.9  #########################################################<br/>
+		    - Upgraded to the newly released <a href="http://www.phpflickr.com">phpFlickr v3</a>
+		    - Rearranged file structure to work when /system is in a location other than the webroot directory<br/>
+		    - Added the ability to browse photos by Group<br/>
+		    - Added the ability to browse photos by Gallery<br/>
+		    - Added a {fieldname:owner} tag to display the photo's owner
+		    - Replaced "num" with "limit" to match the standard EE terminology<br/>
+		    - Optimized tag parsing<br/>
+		    - Added support for Matrix
+		    - Added a {count} tag to all global template tags<br/>
+		    - Added a {switch} tag to all global template tags<br/>
+		    - Added a new tag variable to the {exp:dww_flickr:photosets} template tag pair - {set_id} - which displays the id of the set<br/>
+		    - Added a {exp:dww_flickr:photoset} tag to display a list of photos from a specific set<br/>
+		    - Added a {exp:dww_flickr:tagset} tag to display a list of photos from a specific tag<br/>
+		    - Added a {exp:dww_flickr:groups} tag to display a list of groups the user belongs to<br/>
+		    - Added a {exp:dww_flickr:groupset} tag to display a list of photos from a specific group<br/>
+		    - Added a {exp:dww_flickr:photo} tag to display details of a single photo; geo data, title, description, date taken and posted, tags, comments, notes, etc<br/>
+		    - Many tags now support linking directly to the small, medium and original photo URLs (Note: some users don't allow linking directly to their original photos)
+		    - </p>
+		    
+		    <p>####  2.0.2  #########################################################<br/>
+		    - Changed URLs to use absolute instead of relative<br/>
+		    - Fieldtype settings issue fixed (I hope)<br/>
+		    - Several CSS fixes</p>
+		    
+		    <p>####  2.0.1  #########################################################<br/>
+		    - Fixed missing class issue on EngineHosting</p>
+		    
+		    <p>####  2.0.0  #########################################################<br/>
+		    - Initial release for ExpressionEngine 2</p>
+          
         </section>
 
         <footer>
